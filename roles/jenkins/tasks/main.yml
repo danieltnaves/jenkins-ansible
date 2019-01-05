@@ -1,0 +1,26 @@
+---
+- name: Add Jenkins repository
+  yum_repository:
+    name: jenkins
+    description: jenkins-repo
+    baseurl: http://pkg.jenkins.io/redhat
+  become: yes
+
+- name: Add RPM Key
+  rpm_key:
+    state: present
+    key: https://pkg.jenkins.io/redhat/jenkins.io.key
+  become: yes
+
+- name: Install Jenkins from jenkins repo
+  yum:
+    name: jenkins
+    enablerepo: jenkins
+    state: present
+  become: true
+
+- name: Start Jenkins
+  service:
+    name: jenkins
+    state: started
+  become: true

@@ -1,0 +1,15 @@
+---
+- name: Remove OpenJDK 7
+  yum:
+    name: java-1.7.0-openjdk
+    state: absent
+  become: yes
+
+- name: Install OpenJDK 8
+  yum:
+    name: java-1.8.0-openjdk
+    state: present
+  become: true
+
+
+

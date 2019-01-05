@@ -1,0 +1,4 @@
+---
+docker_user: ec2-user
+docker_comment: 'EC2 User'
+docker_group: docker
